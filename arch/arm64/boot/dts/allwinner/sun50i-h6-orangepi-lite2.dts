@@ -76,3 +76,13 @@
 		max-speed = <1500000>;
 	};
 };
+
+&usb2otg {
+	/*
+	 * This board doesn't have a controllable VBUS even though it
+	 * does have an ID pin. Using it as anything but a USB host is
+	 * unsafe.
+	 */
+	dr_mode = "host";
+	status = "okay";
+};

@@ -24,6 +24,14 @@
 	};
 };
 
+&cpu0 {
+	cpu-supply = <&reg_dcdca>;
+};
+
+&de {
+	status = "okay";
+};
+
 &mmc1 {
 	vmmc-supply = <&reg_cldo2>;
 	vqmmc-supply = <&reg_bldo3>;

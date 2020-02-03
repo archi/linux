@@ -38,10 +38,6 @@
 	cpu-supply = <&reg_dcdca>;
 };
 
-&de {
-	status = "okay";
-};
-
 &dwc3 {
 	status = "okay";
 };

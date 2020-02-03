@@ -15,6 +15,16 @@
 		serial1 = &uart1; /* BT-UART */
 	};
 
+	reg_usb_vbus: vbus {
+		compatible = "regulator-fixed";
+		regulator-name = "usb-vbus";
+		regulator-min-microvolt = <5000000>;
+		regulator-max-microvolt = <5000000>;
+		startup-delay-us = <100000>;
+		gpio = <&r_pio 0 5 GPIO_ACTIVE_HIGH>; /* PL5 USB0-DRVVBUS */
+		enable-active-high;
+	};
+
 	wifi_pwrseq: wifi_pwrseq {
 		compatible = "mmc-pwrseq-simple";
 		clocks = <&rtc 1>;
@@ -29,6 +39,10 @@
 };
 
 &de {
+	status = "okay";
+};
+
+&dwc3 {
 	status = "okay";
 };
 
@@ -92,5 +106,10 @@
 	 * unsafe.
 	 */
 	dr_mode = "host";
+	status = "okay";
+};
+
+&usb3phy {
+	phy-supply = <&reg_usb_vbus>;
 	status = "okay";
 };

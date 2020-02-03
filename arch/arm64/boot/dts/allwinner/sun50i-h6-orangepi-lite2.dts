@@ -3,6 +3,8 @@
  * Copyright (C) 2018 Jagan Teki <jagan@openedev.com>
  */
 
+/dts-v1/;
+
 #include "sun50i-h6-orangepi.dtsi"
 
 / {
